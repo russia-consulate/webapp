@@ -33,7 +33,7 @@ const DEFAULT_HANDLERS: Required<ErrorHandlers> = {
   Unknown: 'Произошла неизвестная ошибка, свяжитесь с поддержкой',
 }
 
-export interface ErrorsHandleAllOptions {
+export interface ErrorsHandleAllParams {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   query?: Query<any, any, any>
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -41,8 +41,8 @@ export interface ErrorsHandleAllOptions {
   handlers?: ErrorHandlers
 }
 
-export const handleAll = createFactory((options: ErrorsHandleAllOptions) => {
-  const { query, mutation, handlers = {} } = options
+export const handleAll = createFactory((params: ErrorsHandleAllParams) => {
+  const { query, mutation, handlers = {} } = params
   const queryOrMutation = query || mutation
 
   if (!queryOrMutation) {

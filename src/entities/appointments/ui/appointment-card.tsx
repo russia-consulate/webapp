@@ -1,6 +1,5 @@
 import { Appointment, AppointmentStatus } from '@shared/api/webapp/types'
-import { Container, Skeleton, Tag, Typography } from '@shared/ui'
-import { TagSkeleton } from '@shared/ui/data-display/tag'
+import { Container, Skeleton, Tag, TagSkeleton, Typography } from '@shared/ui'
 import plural from 'plural-ru'
 
 interface Props {

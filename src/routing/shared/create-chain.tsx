@@ -20,6 +20,7 @@ interface Options {
   sources: Source[]
 }
 
+// TODO: add to factories some way
 export function createChain<Params extends RouteParams>(
   route: RouteInstance<Params>,
   options: Options,

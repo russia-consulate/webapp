@@ -1,8 +1,8 @@
-import { $$appointments } from '@entities/appointments'
 import {
+  $$appointments,
   AppointmentCard,
   AppointmentCardSkeleton,
-} from '@entities/appointments/components/appointment-card'
+} from '@entities/appointments'
 import { useBackRoute } from '@features/go-back'
 import { routes } from '@routing/shared'
 import { Appointment } from '@shared/api/webapp/types'
