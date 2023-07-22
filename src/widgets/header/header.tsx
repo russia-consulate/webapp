@@ -27,7 +27,7 @@ export const Header = ({ title }: Props) => {
         <Button
           className="w-14"
           color="secondary"
-          icon={<Icon name="sprite/arrow-left" size={28} />}
+          icon={<Icon name="arrow-left" size={28} />}
           onClick={$$goBack.clicked}
         />
       </div>

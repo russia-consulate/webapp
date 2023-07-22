@@ -13,7 +13,7 @@ dist-ssr
 .env
 *.local
 public/env.js
-public/sprite.svg
+public/sprite.*
 src/shared/ui/general/icon/sprites.generated.ts
 
 # Editor directories and files

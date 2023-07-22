@@ -11,7 +11,7 @@ interface Props {
 export const Loader = ({ className, style }: Props) => {
   return (
     <div className={clsx(styles.loader, className)} style={style}>
-      <Icon name="sprite/loader" size={110} />
+      <Icon name="loader" size={110} />
     </div>
   )
 }

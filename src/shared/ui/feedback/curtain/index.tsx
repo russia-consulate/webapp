@@ -55,7 +55,7 @@ export const Curtain = ({ isOpen, close, children }: Props) => {
         <div className={styles.contentWrapper}>
           <div className={styles.content}>
             <button onClick={animatedClose} className={styles.close}>
-              <Icon name="sprite/close" size={32} />
+              <Icon name="close" size={32} />
             </button>
             <Container rounded="top" padding="xl">
               {children}

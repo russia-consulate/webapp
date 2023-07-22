@@ -34,7 +34,7 @@ export const Checkbox = forwardRef<HTMLInputElement, Props>(
         />
         <div className={styles.checkbox}>
           <Icon
-            name="sprite/checkbox-mark"
+            name="checkbox-mark"
             className={styles.checkmark}
             size={16}
           />

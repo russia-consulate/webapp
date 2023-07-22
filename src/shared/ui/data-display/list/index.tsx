@@ -26,7 +26,7 @@ export const ListItem = ({ className, children, ...rest }: ListItemProps) => {
     <li className={styles.listItem} {...rest}>
       <Icon
         className="shrink-0 translate-y-[3px]"
-        name="sprite/checkmark-circle"
+        name="checkmark-circle"
         size={16}
       />
       <span>{children}</span>

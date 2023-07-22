@@ -30,9 +30,11 @@ const config = defineConfig({
     svg({
       root: 'src/shared/ui/assets/icons',
       output: 'public',
+      fileName: '{name}.{hash:8}.svg',
       definitions: 'src/shared/ui/general/icon/sprites.generated.ts',
       group: false,
       resetColors: false,
+      experimentalRuntime: true,
     }),
   ],
 })

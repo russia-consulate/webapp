@@ -1,11 +1,8 @@
 import clsx from 'clsx'
 import { SVGProps } from 'react'
-import { SpritesMap } from './sprites.generated'
+import { SPRITES_META, SpritesMap } from './sprites.generated'
 
-// Merging all icons as `SPRITE_NAME/SPRITE_ICON_NAME`
-export type IconName = {
-  [Key in keyof SpritesMap]: `${Key}/${SpritesMap[Key]}`
-}[keyof SpritesMap]
+export type IconName = SpritesMap['sprite']
 
 export interface IconProps
   extends Omit<SVGProps<SVGSVGElement>, 'name' | 'type'> {
@@ -17,21 +14,22 @@ export const Icon = ({
   name,
   size,
   className,
-  viewBox,
+  viewBox: viewBoxFromProps,
   ...props
 }: IconProps) => {
-  const [spriteName, iconName] = name.split('/')
+  const { filePath, items } = SPRITES_META.sprite
+  const { viewBox } = items[name]
 
   return (
     <svg
       className={clsx(className, 'select-none inline-block')}
       style={{ width: size, height: size }}
-      viewBox={viewBox}
+      viewBox={viewBoxFromProps ?? viewBox}
       focusable="false"
       aria-hidden
       {...props}
     >
-      <use href={`/${spriteName}.svg#${iconName}`} />
+      <use href={`/${filePath}#${name}`} />
     </svg>
   )
 }

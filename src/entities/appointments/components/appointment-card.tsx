@@ -11,17 +11,17 @@ export const AppointmentCard = ({ appointment }: Props) => {
   return (
     <Container className="border border-neutral-900 border-opacity-[15%]">
       {appointment.status === AppointmentStatus.NotPayed && (
-        <Tag color="orange" icon="sprite/time-circle">
+        <Tag color="orange" icon="time-circle">
           Ожидает оплаты
         </Tag>
       )}
       {appointment.status === AppointmentStatus.InQueue && (
-        <Tag color="blue" icon="sprite/wait-circle">
+        <Tag color="blue" icon="wait-circle">
           В очереди
         </Tag>
       )}
       {appointment.status === AppointmentStatus.Done && (
-        <Tag color="green" icon="sprite/checkmark-circle">
+        <Tag color="green" icon="checkmark-circle">
           Запись выполнена
         </Tag>
       )}

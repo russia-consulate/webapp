@@ -12,7 +12,7 @@ function mapTypeToIcon(type: ToastType) {
   if (type === 'error')
     return (
       <Icon
-        name="sprite/cross-circle"
+        name="cross-circle"
         className={clsx(css.icon, 'text-failure')}
         size={32}
       />
@@ -21,7 +21,7 @@ function mapTypeToIcon(type: ToastType) {
   if (type === 'success')
     return (
       <Icon
-        name="sprite/checkmark-circle"
+        name="checkmark-circle"
         className={clsx(css.icon, 'text-[#21C02E]')}
         size={32}
       />
@@ -29,7 +29,7 @@ function mapTypeToIcon(type: ToastType) {
 
   return (
     <Icon
-      name="sprite/time-circle"
+      name="time-circle"
       className={clsx(css.icon, 'text-blue-900')}
       size={32}
     />
