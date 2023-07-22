@@ -1,0 +1,18 @@
+.list {
+  @apply flex flex-wrap gap-2;
+}
+
+.option {
+  @apply flex items-center h-8 px-4;
+  @apply text-sm;
+  @apply rounded-[8px] bg-gray-200;
+
+  &[data-selected="true"] {
+    @apply cursor-default text-white bg-neutral-900;
+  }
+
+  &[data-selected="false"] {
+    &:hover { @apply bg-gray-300 }
+    &:active { @apply bg-gray-400 }
+  }
+}

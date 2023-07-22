@@ -1,0 +1,47 @@
+.heading {
+  @apply font-bold;
+
+  &[data-font="interface"] {
+    @apply font-interface;
+  }
+
+  &[data-font="text"] {
+    @apply font-text;
+  }
+
+  &[data-size="xl"] {
+    @apply text-[24px] leading-none;
+  }
+
+  &[data-size="base"] {
+    @apply text-[18px] leading-tight;
+  }
+
+  &[data-size="sm"] {
+    @apply text-[16px] leading-tight;
+  }
+}
+
+.paragraph {
+  @apply font-text text-neutral-900;
+
+  &[data-color="secondary"] {
+    @apply text-opacity-60;
+  }
+
+  &[data-size="xl"] {
+    @apply text-xl;
+  }
+
+  &[data-size="base"] {
+    @apply text-base;
+  }
+
+  &[data-size="sm"] {
+    @apply text-sm;
+  }
+
+  &[data-line-height="tight"] {
+    @apply leading-tight;
+  }
+}

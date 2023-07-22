@@ -1,0 +1,1 @@
+export { formatRUB } from './currency'

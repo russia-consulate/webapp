@@ -1,0 +1,7 @@
+.list {
+  @apply flex flex-col gap-3;
+}
+
+.listItem {
+  @apply flex gap-2;
+}

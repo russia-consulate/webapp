@@ -1,0 +1,81 @@
+.button {
+  @apply inline-flex items-center justify-center gap-2;
+  @apply font-medium tracking-wide text-center;
+  @apply rounded-[16px];
+  @apply select-none;
+  @apply transition;
+
+  &:focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-black;
+  }
+
+  &[data-size="sm"] {
+    @apply h-12 p-4 text-sm leading-tight;
+  }
+
+  &[data-size="md"] {
+    @apply h-14 p-4 text-base leading-tight;
+  }
+
+  &[data-size="xl"] {
+    @apply h-16 p-4 text-xl leading-tight;
+  }
+
+  &[data-variant="outline"] {
+    @apply text-neutral-900;
+    @apply border border-current;
+
+    &:focus-visible {
+      @apply outline-offset-0;
+    }
+
+    &[data-disabled="true"][data-loading="false"] {
+      @apply opacity-20;
+    }
+  }
+
+  &[data-variant="solid"][data-color="primary"] {
+    @apply bg-neutral-900 text-white;
+
+    &[data-disabled="true"][data-loading="false"] {
+      @apply bg-opacity-10 text-neutral-900 text-opacity-30;
+    }
+  }
+
+  &[data-variant="solid"][data-color="secondary"] {
+    @apply bg-gray-200 text-neutral-900;
+
+    &[data-disabled="true"][data-loading="false"] {
+      @apply bg-gray-100 text-neutral-900 text-opacity-30;
+    }
+  }
+
+  &[data-disabled="true"] {
+    @apply cursor-not-allowed;
+  }
+
+  &[data-fluid="true"] {
+    @apply w-full;
+  }
+
+  &[data-loading="true"] {
+    @apply bg-opacity-50;
+  }
+}
+
+.button[data-disabled="false"][data-loading="false"] {
+  &[data-variant="solid"][data-color="primary"] {
+    &:hover { @apply bg-opacity-90 }
+    &:active { @apply bg-opacity-80 }
+  }
+
+  &[data-variant="solid"][data-color="secondary"] {
+    &:hover { @apply bg-gray-300 }
+    &:active { @apply bg-gray-400 }
+  }
+
+  &[data-variant="outline"] {
+    &:hover { @apply bg-gray-200 }
+    &:active { @apply bg-gray-400 }
+  }
+}

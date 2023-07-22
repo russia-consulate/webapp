@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  @apply font-text;
+  @apply text-neutral-900 bg-gray-200;
+}
+
+body,
+#root {
+  @apply w-full;
+  min-height: var(--tg-viewport-stable-height);
+}

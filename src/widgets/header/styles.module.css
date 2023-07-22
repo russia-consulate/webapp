@@ -1,0 +1,15 @@
+.header {
+  @apply sticky top-0 z-10 h-20 flex items-center justify-between gap-3 text-center;
+
+  &[data-scrolled="true"] {
+    box-shadow: 0 2px 8px rgba(21, 21, 21, 0.06);
+  }
+}
+
+.action {
+  @apply shrink-0 w-14 h-14;
+}
+
+.goBack {
+  @apply w-full h-full flex items-center justify-center rounded-[16px] bg-gray-200;
+}

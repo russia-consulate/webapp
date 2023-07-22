@@ -1,0 +1,18 @@
+.loader {
+  @apply w-full h-full flex items-center justify-center;
+
+  animation-name: loader-color;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+
+  & svg {
+    @apply animate-spin;
+  }
+}
+
+@keyframes loader-color {
+  0% { @apply text-purple-700 }
+  33% { @apply text-blue-700 }
+  66% { @apply text-green-700 }
+  100% { @apply text-purple-700 }
+}

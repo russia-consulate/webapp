@@ -1,0 +1,44 @@
+.wrapper {
+  @apply relative;
+}
+
+.input {
+  @apply w-full h-14 px-4;
+  @apply text-base text-neutral-900;
+  @apply outline-none;
+  @apply border border-gray-500 rounded-[16px];
+  @apply focus:border-neutral-900;
+  @apply transition-colors;
+
+  &::placeholder {
+    @apply text-neutral-900 text-opacity-60;
+  }
+}
+
+.icon {
+  @apply absolute;
+  @apply h-14 min-w-[48px] pl-1 pr-2;
+  @apply right-0 top-0;
+  @apply flex items-center justify-center;
+  @apply pointer-events-none;
+}
+
+.error {
+  @apply hidden;
+  @apply mt-1 px-3;
+  @apply text-xs text-failure;
+}
+
+.wrapper[data-valid="false"]:not(:focus-within) {
+  & .label {
+    @apply text-failure opacity-100;
+  }
+
+  & .input {
+    @apply border-failure;
+  }
+
+  & .error {
+    @apply block;
+  }
+}

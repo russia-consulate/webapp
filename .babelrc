@@ -1,0 +1,8 @@
+{
+  "plugins": [
+    [
+      "effector/babel-plugin",
+      { "factories": ["@withease/factories", "@farfetched/core"] }
+    ]
+  ]
+}

@@ -1,0 +1,1 @@
+export { BaseTemplate } from './template'

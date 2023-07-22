@@ -1,0 +1,53 @@
+{
+  "name": "@russia-consulate/webapp",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "env": "env-cmd --silent node scripts/generate-env.mjs",
+    "dev": "yarn env && vite --host",
+    "build": "yarn env && vite build && tsc",
+    "preview": "vite preview",
+    "lint": "eslint \"src/**/*.{js,ts,jsx,tsx}\"",
+    "lint:fix": "eslint \"src/**/*.{js,ts,jsx,tsx}\" --fix",
+    "certs:generate": "mkcert -key-file ssl/webapp.key -cert-file ssl/webapp.crt localhost 192.168.1.127"
+  },
+  "dependencies": {
+    "@farfetched/core": "^0.8.12",
+    "@fontsource/nunito": "^5.0.3",
+    "@withease/factories": "^0.2.0",
+    "atomic-router": "^0.8.0",
+    "atomic-router-react": "^0.8.4",
+    "axios": "^1.4.0",
+    "body-scroll-lock": "^4.0.0-beta.0",
+    "effector": "^22.8.0",
+    "effector-react": "^22.5.1",
+    "highlight.run": "^7.3.9",
+    "history": "^5.3.0",
+    "patronum": "^1.17.0",
+    "plural-ru": "^2.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.44.3",
+    "react-hot-toast": "^2.4.1"
+  },
+  "devDependencies": {
+    "@neodx/svg": "^0.2.0",
+    "@types/body-scroll-lock": "^3.1.0",
+    "@types/node": "^20.2.3",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@types/telegram-web-app": "^6.4.0",
+    "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.14",
+    "env-cmd": "^10.1.0",
+    "eslint": "^8.41.0",
+    "eslint-kit": "^10.0.0",
+    "postcss": "^8.4.23",
+    "prettier": "^3.0.0",
+    "tailwindcss": "^3.3.2",
+    "typescript": "^5.1.6",
+    "vite": "^4.2.0",
+    "vite-tsconfig-paths": "^4.0.8"
+  }
+}

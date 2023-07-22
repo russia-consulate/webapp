@@ -1,0 +1,31 @@
+.skeleton {
+  @apply relative overflow-hidden;
+  @apply w-full;
+  @apply bg-gray-200;
+  @apply rounded-[6px];
+}
+
+.skeleton[data-type="inline"] {
+  @apply inline-flex;
+  @apply leading-none;
+}
+
+.skeleton:after {
+  @apply block content-[''];
+  @apply absolute inset-0;
+
+  background-image: linear-gradient(90deg, #F2F4F7, white, #F2F4F7);
+  background-repeat: no-repeat;
+  transform: translateX(-100%);
+
+  animation-name: skeleton;
+  animation-direction: normal;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes skeleton {
+  from { transform: translateX(-100%) }
+  to { transform: translateX(100%) }
+}

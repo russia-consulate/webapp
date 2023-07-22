@@ -1,0 +1,7 @@
+.card {
+  @apply relative mx-2 my-auto;
+
+  &[data-skeleton="true"] {
+    @apply p-0;
+  }
+}

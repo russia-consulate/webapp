@@ -1,0 +1,31 @@
+.container {
+  @apply bg-white;
+
+  &[data-padding="base"] {
+    @apply p-4;
+  }
+
+  &[data-padding="xl"] {
+    @apply p-6;
+  }
+
+  &[data-nesting="0"] {
+    --radius: 24px;
+  }
+
+  &[data-nesting="1"] {
+    --radius: 16px;
+  }
+
+  &[data-rounded="top"],
+  &[data-rounded="both"] {
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+  }
+
+  &[data-rounded="bottom"],
+  &[data-rounded="both"] {
+    border-bottom-left-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+  }
+}

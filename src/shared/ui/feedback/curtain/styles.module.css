@@ -1,0 +1,84 @@
+.curtain {
+  @apply fixed z-20 flex items-end justify-center inset-x-0 top-0;
+  @apply hidden pointer-events-none;
+  transform: translateZ(0);
+
+  &[data-open="true"] {
+    @apply block pointer-events-auto;
+  }
+}
+
+.curtain[data-animation] {
+  @apply overflow-hidden pointer-events-none;
+}
+
+.curtain[data-animation="in"] .contentWrapper {
+  animation-name: fade-in-transform;
+  animation-duration: 500ms;
+  animation-timing-function: ease;
+}
+
+.curtain[data-animation="out"] .contentWrapper {
+  animation-name: fade-out-transform;
+  animation-duration: 500ms;
+  transform: translateY(calc(100% + 72px));
+}
+
+.overlay {
+  @apply fixed inset-0 cursor-default;
+  @apply bg-black opacity-40;
+  transform: translateZ(0);
+}
+
+.curtain[data-animation="in"] .overlay {
+  animation-name: fade-in-opacity;
+  animation-duration: 500ms;
+  animation-timing-function: ease;
+}
+
+.curtain[data-animation="out"] .overlay {
+  animation-name: fade-out-opacity;
+  animation-duration: 500ms;
+}
+
+.closeOutsideZone {
+  @apply absolute inset-0;
+  @apply cursor-default;
+}
+
+.scrollable {
+  @apply absolute inset-0 overflow-auto;
+  @apply flex justify-end pt-[72px];
+}
+
+.contentWrapper {
+  @apply relative overflow-visible w-full mt-auto;
+}
+
+.content {
+  @apply overflow-hidden;
+}
+
+.close {
+  @apply flex items-center justify-center w-14 h-14 absolute right-4 bg-white rounded-2xl -top-16;
+}
+
+@keyframes fade-in-transform {
+  from { transform: translateY(calc(100% + 72px)) }
+  to { transform: translateY(0) }
+}
+
+@keyframes fade-out-transform {
+  from { transform: translateY(0) }
+  to { transform: translateY(calc(100% + 72px)) }
+}
+
+@keyframes fade-in-opacity {
+  from { opacity: 0 }
+  to { opacity: 40% }
+}
+
+@keyframes fade-out-opacity {
+  from { opacity: 40% }
+  to { opacity: 0 }
+}

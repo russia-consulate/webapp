@@ -1,0 +1,38 @@
+.notification {
+  @apply flex items-center gap-3 w-full bg-white shadow-md rounded-[24px] p-4 select-none;
+}
+
+.icon {
+  @apply shrink-0;
+}
+
+.curtain[data-animation="out"] .overlay {
+  animation-name: fade-out-opacity;
+  animation-duration: 500ms;
+}
+
+.notification[data-visible="true"] {
+  animation-name: opening;
+  animation-duration: 300ms;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.notification[data-visible="false"] {
+  animation-name: closing;
+  animation-duration: 200ms;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes opening {
+  from { transform: translateY(-25%) scale(0.95); opacity: 0 }
+  to { transform: translateY(0) scale(1); opacity: 1 }
+}
+
+@keyframes closing {
+  from { transform: translateY(0) scale(1); opacity: 1 }
+  to { transform: translateY(25%) scale(0.95); opacity: 0 }
+}

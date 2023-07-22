@@ -1,0 +1,1 @@
+export { StickyPurchaseOffer } from './view'
