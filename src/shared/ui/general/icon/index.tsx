@@ -10,13 +10,7 @@ export interface IconProps
   size: number | string
 }
 
-export const Icon = ({
-  name,
-  size,
-  className,
-  viewBox: viewBoxFromProps,
-  ...props
-}: IconProps) => {
+export const Icon = ({ name, size, className, ...props }: IconProps) => {
   const { filePath, items } = SPRITES_META.sprite
   const { viewBox } = items[name]
 
@@ -24,7 +18,7 @@ export const Icon = ({
     <svg
       className={clsx(className, 'select-none inline-block')}
       style={{ width: size, height: size }}
-      viewBox={viewBoxFromProps ?? viewBox}
+      viewBox={viewBox}
       focusable="false"
       aria-hidden
       {...props}

@@ -9,6 +9,9 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vitejs.dev/config/
 const config = defineConfig({
+  build: {
+    sourcemap: true,
+  },
   server: {
     port: 3001,
     https: {
