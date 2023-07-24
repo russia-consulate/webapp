@@ -55,7 +55,7 @@ export const AppointmentCreatePage = () => {
   return (
     <BaseTemplate>
       <Header title="Запись в консульство" />
-      <section className="grow py-2 flex flex-col gap-2">
+      <section className="grow py-2 flex flex-col">
         {view === View.Form && <Form form={form} />}
         {view === View.Confirmation && <Confirmation />}
         {view === View.Done && <Done />}
@@ -89,7 +89,7 @@ const Form = ({ form }: { form: UseFormReturn<FormValues> }) => {
   const handleSubmit = form.handleSubmit(formSubmitted)
 
   return (
-    <div className="grow py-2 flex flex-col gap-2" onSubmit={handleSubmit}>
+    <div className="grow flex flex-col gap-2" onSubmit={handleSubmit}>
       <Container>
         <Typography.Heading font="text" size="base">
           Выберите консульство

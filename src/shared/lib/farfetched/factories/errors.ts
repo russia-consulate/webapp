@@ -1,10 +1,10 @@
 import { Mutation, Query } from '@farfetched/core'
 import { NetworkException, NetworkExceptionType } from '@shared/api'
-import { $$notifications } from '@shared/lib/notifications'
 import { createFactory } from '@withease/factories'
 import { createEffect, createEvent, sample } from 'effector'
 import { H } from 'highlight.run'
 import { condition } from 'patronum'
+import { $$notification } from '../../../ui'
 
 export type ErrorHandlers = {
   [Type in NetworkExceptionType]?: string
@@ -69,7 +69,7 @@ export const handleAll = createFactory((params: ErrorsHandleAllParams) => {
   sample({
     clock: networkExceptionOccured,
     fn: (exception) => finalHandlers[exception.type],
-    target: $$notifications.failure,
+    target: $$notification.failure,
   })
 
   sample({

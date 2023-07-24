@@ -1,13 +1,13 @@
 import { Pages } from '@pages'
 import { router } from '@routing/shared'
+import { NotificationStack } from '@shared/ui'
 import { RouterProvider } from 'atomic-router-react'
-import { Toaster } from 'react-hot-toast'
 
 export const App = () => {
   return (
     <RouterProvider router={router}>
       <Pages />
-      <Toaster />
+      <NotificationStack />
     </RouterProvider>
   )
 }

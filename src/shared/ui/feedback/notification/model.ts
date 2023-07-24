@@ -1,6 +1,6 @@
 import { createEffect, createEvent, sample } from 'effector'
 import toast, { ToastType } from 'react-hot-toast'
-import { createNotificationComponent } from '../../ui'
+import { createNotificationComponent } from './notification'
 
 interface Options {
   type: ToastType
