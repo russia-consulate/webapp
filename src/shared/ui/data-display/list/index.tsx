@@ -24,11 +24,7 @@ interface ListItemProps extends HTMLAttributes<HTMLLIElement> {
 export const ListItem = ({ className, children, ...rest }: ListItemProps) => {
   return (
     <li className={styles.listItem} {...rest}>
-      <Icon
-        className="shrink-0 translate-y-[3px]"
-        name="checkmark-circle"
-        size={16}
-      />
+      <Icon className="shrink-0 translate-y-[3px]" name="checkmark-circle" />
       <span>{children}</span>
     </li>
   )

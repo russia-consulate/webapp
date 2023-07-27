@@ -21,7 +21,7 @@ export const Tag = ({
 }: TagProps) => {
   return (
     <div className={clsx(styles.tag, className)} data-color={color}>
-      {icon && <Icon name={icon} size={16} />}
+      {icon && <Icon name={icon} />}
       <span className={styles.text}>{children}</span>
     </div>
   )

@@ -652,10 +652,10 @@
   resolved "https://registry.yarnpkg.com/@neodx/std/-/std-0.1.4.tgz#da05bba72f50e2440285345dbaec24d83cdae3a4"
   integrity sha512-5iR6yF/7f6LvDftVkP99xBvSOO1GBPToVt8S+FMwXhuUeMzQpyZr35Hxz7t/Ic5i5vc9JyJkuNyLRp2TYTp64g==
 
-"@neodx/svg@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@neodx/svg/-/svg-0.3.0.tgz#584479dfecb6fdd794986ff2dd64b36195627c3a"
-  integrity sha512-94m1Jv1XX3mwcoSE17BSm7mnmFie0KzJHZeSozMP0uRvBLP8fHYk2NK0TWlVTWuBhdeF8ZJZiRpsWwKiCHGR6Q==
+"@neodx/svg@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@neodx/svg/-/svg-0.5.0.tgz#130c40fe0ae9ac8c0bb9c0f71e3686367c76dba0"
+  integrity sha512-CwWm2s81GJ17ozdA468yqzQRjA7m/RU23OfZ3tt46fY2WLlCJ2gDXAuVl39yeDzE12wMw6/gWpI59OMrR6h/2w==
   dependencies:
     "@neodx/fs" "^0.0.8"
     "@neodx/log" "^0.2.0"

@@ -7,21 +7,30 @@ export type IconName = SpritesMap['sprite']
 export interface IconProps
   extends Omit<SVGProps<SVGSVGElement>, 'name' | 'type'> {
   name: IconName
-  size: number | string
+  size?: number | string
 }
 
-export const Icon = ({ name, size, className, ...props }: IconProps) => {
+export const Icon = ({
+  name,
+  size,
+  width = size,
+  height = size,
+  viewBox,
+  className,
+  ...rest
+}: IconProps) => {
   const { filePath, items } = SPRITES_META.sprite
-  const { viewBox } = items[name]
+  const original = items[name]
 
   return (
     <svg
       className={clsx(className, 'select-none inline-block')}
-      style={{ width: size, height: size }}
-      viewBox={viewBox}
       focusable="false"
       aria-hidden
-      {...props}
+      width={width || original.width}
+      height={height || original.height}
+      viewBox={viewBox || original.viewBox}
+      {...rest}
     >
       <use href={`/${filePath}#${name}`} />
     </svg>

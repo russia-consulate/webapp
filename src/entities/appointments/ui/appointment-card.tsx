@@ -24,6 +24,7 @@ export const AppointmentCard = ({ appointment }: Props) => {
           Запись выполнена
         </Tag>
       )}
+
       <h3 className="mt-2 font-semibold leading-tight break-words">
         Запись {appointment.requestId}
       </h3>
@@ -32,6 +33,7 @@ export const AppointmentCard = ({ appointment }: Props) => {
           {appointment.serviceName}
         </Typography.Paragraph>
       )}
+
       {appointment.status === AppointmentStatus.InQueue && (
         <ul className="mt-4 -mb-4 -mx-4 border-neutral-900 border-opacity-[10%] border-t-[1px] text-sm">
           <li className="px-4 py-3 flex justify-between gap-3">
@@ -61,6 +63,7 @@ export const AppointmentCard = ({ appointment }: Props) => {
           )}
         </ul>
       )}
+
       {appointment.status === AppointmentStatus.Done && (
         <ul className="mt-4 -mb-4 -mx-4 border-neutral-900 border-opacity-[10%] border-t-[1px] text-sm">
           <li className="px-4 py-3 flex justify-between gap-3">

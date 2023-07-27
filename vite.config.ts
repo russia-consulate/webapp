@@ -34,7 +34,13 @@ const config = defineConfig({
       root: 'src/shared/ui/assets/icons',
       output: 'public',
       fileName: '{name}.{hash:8}.svg',
-      definitions: 'src/shared/ui/general/icon/sprites.generated.ts',
+      metadata: {
+        path: 'src/shared/ui/general/icon/sprites.generated.ts',
+        runtime: {
+          size: true,
+          viewBox: true,
+        },
+      },
       group: false,
       resetColors: false,
       experimentalRuntime: true,

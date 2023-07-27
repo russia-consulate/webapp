@@ -8,7 +8,7 @@ import {
   RouteParamsAndQuery,
 } from 'atomic-router'
 import { createEvent, Event, sample, Store } from 'effector'
-import { and, not } from 'patronum'
+import { and, debug, not, or } from 'patronum'
 
 interface Source {
   query: Query<any, any, any>
@@ -55,9 +55,9 @@ export function createChain<Params extends RouteParams>(
 
   sample({
     clock: checkTriggers,
-    source: sources.map((source) => {
-      if (source.succeedIf) return source.succeedIf
-      return source.query.$status.map((status) => status === 'done')
+    source: sources.map(({ query, succeedIf }) => {
+      if (succeedIf) return and(or(query.$succeeded, query.$failed), succeedIf)
+      return query.$status.map((status) => status === 'done')
     }),
     filter: (statuses) => statuses.every(Boolean),
     target: loadingFinished,
@@ -66,8 +66,9 @@ export function createChain<Params extends RouteParams>(
   sample({
     clock: checkTriggers,
     source: sources.map(({ query, succeedIf }) => {
-      if (succeedIf) return and(not(query.$pending), not(succeedIf))
-      return query.$status.map((status) => status === 'fail')
+      if (succeedIf)
+        return and(or(query.$succeeded, query.$failed), not(succeedIf))
+      return query.$failed
     }),
     filter: (statuses) => statuses.some(Boolean),
     target: loadingFailed,

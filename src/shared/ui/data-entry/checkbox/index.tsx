@@ -33,7 +33,7 @@ export const Checkbox = forwardRef<HTMLInputElement, Props>(
           {...rest}
         />
         <div className={styles.checkbox}>
-          <Icon name="checkbox-mark" className={styles.checkmark} size={16} />
+          <Icon name="checkbox-mark" className={styles.checkmark} />
         </div>
         {typeof label === 'string' ? (
           <div

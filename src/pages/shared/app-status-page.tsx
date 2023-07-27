@@ -11,12 +11,12 @@ export const AppStatusPage = () => {
     return <Loader style={{ height: 'var(--tg-viewport-stable-height)' }} />
   }
 
-  if (user.error) {
-    return <ServiceNotWorkingPage />
-  }
-
   if (!user.data?.initialized) {
     return <UserNotInitializedPage />
+  }
+
+  if (user.error) {
+    return <ServiceNotWorkingPage />
   }
 
   return null
