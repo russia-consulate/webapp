@@ -8,7 +8,7 @@ import {
   RouteParamsAndQuery,
 } from 'atomic-router'
 import { createEvent, Event, sample, Store } from 'effector'
-import { and, debug, not, or } from 'patronum'
+import { and, not, or } from 'patronum'
 
 interface Source {
   query: Query<any, any, any>

@@ -43,7 +43,6 @@ const config = defineConfig({
       },
       group: false,
       resetColors: false,
-      experimentalRuntime: true,
     }),
   ],
 })
