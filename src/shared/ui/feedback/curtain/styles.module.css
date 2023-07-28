@@ -3,9 +3,7 @@
   @apply hidden pointer-events-none;
   transform: translateZ(0);
 
-  &[data-open="true"] {
-    @apply block pointer-events-auto;
-  }
+  &[data-open="true"] { @apply block pointer-events-auto }
 }
 
 .curtain[data-animation] {

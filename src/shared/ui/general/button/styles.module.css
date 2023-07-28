@@ -9,17 +9,9 @@
     @apply outline outline-2 outline-offset-2 outline-black;
   }
 
-  &[data-size="sm"] {
-    @apply h-12 p-4 text-sm leading-tight;
-  }
-
-  &[data-size="md"] {
-    @apply h-14 p-4 text-base leading-tight;
-  }
-
-  &[data-size="xl"] {
-    @apply h-16 p-4 text-xl leading-tight;
-  }
+  &[data-size="sm"] { @apply h-12 p-4 text-sm leading-tight }
+  &[data-size="md"] { @apply h-14 p-4 text-base leading-tight }
+  &[data-size="xl"] { @apply h-16 p-4 text-xl leading-tight }
 
   &[data-variant="outline"] {
     @apply text-neutral-900;
@@ -50,17 +42,9 @@
     }
   }
 
-  &[data-disabled="true"] {
-    @apply cursor-not-allowed;
-  }
-
-  &[data-fluid="true"] {
-    @apply w-full;
-  }
-
-  &[data-loading="true"] {
-    @apply bg-opacity-50;
-  }
+  &[data-disabled="true"] { @apply cursor-not-allowed }
+  &[data-fluid="true"] { @apply w-full }
+  &[data-loading="true"] { @apply bg-opacity-50 }
 }
 
 .button[data-disabled="false"][data-loading="false"] {

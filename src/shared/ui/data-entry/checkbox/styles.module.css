@@ -48,21 +48,11 @@
 }
 
 .input:focus-visible {
-  & + .checkbox {
-    @apply outline outline-neutral-900 border-neutral-900;
-  }
-
-  & .label {
-    @apply text-neutral-900;
-  }
+  & + .checkbox { @apply outline outline-neutral-900 border-neutral-900 }
+  & .label { @apply text-neutral-900 }
 }
 
 .wrapper[data-valid="false"] {
-  & .checkbox {
-    @apply border-failure outline-failure;
-  }
-
-  & .label {
-    @apply text-failure;
-  }
+  & .checkbox { @apply border-failure outline-failure }
+  & .label { @apply text-failure }
 }

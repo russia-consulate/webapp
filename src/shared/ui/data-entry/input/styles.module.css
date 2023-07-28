@@ -30,15 +30,7 @@
 }
 
 .wrapper[data-valid="false"]:not(:focus-within) {
-  & .label {
-    @apply text-failure opacity-100;
-  }
-
-  & .input {
-    @apply border-failure;
-  }
-
-  & .error {
-    @apply block;
-  }
+  & .label { @apply text-failure opacity-100 }
+  & .input { @apply border-failure }
+  & .error { @apply block }
 }
