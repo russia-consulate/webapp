@@ -1,8 +1,8 @@
 import { $$user } from '@entities/user'
 import { Loader } from '@shared/ui'
 import { useUnit } from 'effector-react'
+import { MessageRequiredPage } from './message-required'
 import { ServiceNotWorkingPage } from './service-not-working'
-import { UserNotInitializedPage } from './user-not-initialized'
 
 export const AppStatusPage = () => {
   const user = useUnit($$user.query)
@@ -12,7 +12,7 @@ export const AppStatusPage = () => {
   }
 
   if (!user.data?.initialized) {
-    return <UserNotInitializedPage />
+    return <MessageRequiredPage />
   }
 
   if (user.error) {
