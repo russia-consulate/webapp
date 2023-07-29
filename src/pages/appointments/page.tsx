@@ -55,7 +55,7 @@ const Content = () => {
       </Container>
     )
 
-  if (appointments.data?.length === 0)
+  if (appointments.data.length === 0)
     return (
       <ResultCard
         title="Записей нет"

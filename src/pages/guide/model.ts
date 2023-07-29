@@ -24,10 +24,11 @@ export const $view = createStore<View | null>(null)
 sample({
   clock: appLoadedRoute.opened,
   source: {
+    loading: $$appointments.query.$pending,
     appointments: $$appointments.query.$data,
   },
-  fn: ({ appointments }) => {
-    if (!appointments) return View.Loading
+  fn: ({ loading, appointments }) => {
+    if (loading) return View.Loading
     return checkAccess(appointments) ? View.Content : View.NoAccess
   },
   target: $view,

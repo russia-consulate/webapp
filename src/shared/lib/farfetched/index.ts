@@ -4,7 +4,7 @@ import { ErrorHandlers, handleAll } from './factories/errors'
 import { timeUntilStale } from './factories/time-until-stale'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const QueryTools = (query: Query<any, any, any>) => ({
+export const QueryTools = (query: Query<any, any, any, any>) => ({
   timeUntilStale: (timeout: number) =>
     invoke(timeUntilStale, { query, timeout }),
   errors: {

@@ -1,25 +1,23 @@
 import { $$appointments } from '@entities/appointments'
 import { createEvent, createStore, sample } from 'effector'
+import { and } from 'patronum'
 
-export const showStickyPurchaseOffer = createEvent()
 export const closeStickyPurchaseCurtain = createEvent()
 
-export const $stickyPurchaseOfferActive = createStore(false).on(
-  showStickyPurchaseOffer,
-  () => true,
+export const $stickyPurchaseOfferActive = and(
+  $$appointments.query.$succeeded,
+  $$appointments.query.$data.map((appointments) => appointments.length === 0),
 )
 
-export const $stickyPurchaseOfferCurtainOpen = createStore(true).on(
-  closeStickyPurchaseCurtain,
-  () => false,
-)
+export const $stickyPurchaseOfferCurtainOpen = createStore(false)
 
 sample({
-  clock: $$appointments.query.finished.success,
-  source: $$appointments.query.$data,
-  filter: (appointments) => {
-    if (!appointments) return false
-    return appointments.length === 0
-  },
-  target: showStickyPurchaseOffer,
+  source: $stickyPurchaseOfferActive,
+  target: $stickyPurchaseOfferCurtainOpen,
+})
+
+sample({
+  clock: closeStickyPurchaseCurtain,
+  fn: () => false,
+  target: $stickyPurchaseOfferCurtainOpen,
 })

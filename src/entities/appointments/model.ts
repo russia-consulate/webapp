@@ -5,6 +5,7 @@ import { QueryTools } from '@shared/lib/farfetched'
 export const query = createQuery({
   name: 'appointments',
   effect: WebAppApi.getAppointmentsFx,
+  initialData: [],
 })
 
 QueryTools(query).timeUntilStale(1000 * 60)
