@@ -1,7 +1,7 @@
 <h1 align="center">Russia Consulate Bot WebApp</h1>
 
 <div align="center">
-  <video src="https://github.com/russia-consulate/webapp/assets/35740512/d691b0e1-a64a-4839-ac6c-ef8aa5cc132d" width="330" />
+  <video src="https://github.com/russia-consulate/webapp/assets/35740512/bea66123-7a94-4b35-b843-8fdacbdf5b5e" />
 </div>
 
 ## Development
