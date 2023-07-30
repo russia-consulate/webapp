@@ -1,67 +1,40 @@
 import { createEffect } from 'effector'
-import { request } from './request'
+import { api } from './api'
 import { Appointment, Consulate, Price, User } from './types'
 
 export const getUserFx = createEffect(() => {
-  return request<User>({
-    url: '/user',
-    method: 'GET',
-  })
+  return api.url('/user').get().json<User>()
 })
 
 export const getAppointmentsFx = createEffect(() => {
-  return request<Appointment[]>({
-    url: '/appointments',
-    method: 'GET',
-  })
+  return api.url('/appointments').get().json<Appointment[]>()
 })
 
-interface GetAppointmentPricePayload {
-  consulateId: string
-}
-
 export const getAppointmentPriceFx = createEffect(
-  (payload: GetAppointmentPricePayload) => {
-    return request<Price>({
-      url: '/appointments/price',
-      method: 'GET',
-      params: payload,
-    })
+  (payload: { consulateId: string }) => {
+    return api.url('/appointments/price').query(payload).get().json<Price>()
   },
 )
-
-export interface CreateAppointmentPayload {
-  consulateId: string
-  requestId: string
-  requestSecurityCode: string
-}
 
 export const createAppointmentFx = createEffect(
-  (payload: CreateAppointmentPayload) => {
-    return request<Appointment[]>({
-      url: '/appointments/create',
-      method: 'POST',
-      data: payload,
-    })
+  (payload: {
+    consulateId: string
+    requestId: string
+    requestSecurityCode: string
+  }) => {
+    return api.url('/appointments/create').post(payload).res()
   },
 )
 
-interface SendAppointmentInvoicePayload {
-  appointmentId: string
-}
-
 export const sendAppointmentInvoiceFx = createEffect(
-  (payload: SendAppointmentInvoicePayload) => {
-    return request<void>({
-      url: `/appointments/${payload.appointmentId}/send-invoice`,
-      method: 'POST',
-    })
+  (payload: { appointmentId: string }) => {
+    return api
+      .url(`/appointments/${payload.appointmentId}/send-invoice`)
+      .post(payload)
+      .json()
   },
 )
 
 export const getConsulatesFx = createEffect(() => {
-  return request<Consulate[]>({
-    url: '/consulates',
-    method: 'GET',
-  })
+  return api.url('/consulates').get().json<Consulate[]>()
 })
