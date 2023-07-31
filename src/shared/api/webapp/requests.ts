@@ -16,12 +16,14 @@ export const getAppointmentPriceFx = createEffect(
   },
 )
 
+export interface CreateAppointmentPayload {
+  consulateId: string
+  requestId: string
+  requestSecurityCode: string
+}
+
 export const createAppointmentFx = createEffect(
-  (payload: {
-    consulateId: string
-    requestId: string
-    requestSecurityCode: string
-  }) => {
+  (payload: CreateAppointmentPayload) => {
     return api.url('/appointments/create').post(payload).res()
   },
 )

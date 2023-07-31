@@ -1,7 +1,5 @@
 import * as fs from 'fs'
 import * as path from 'path'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import svg from '@neodx/svg/vite'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
