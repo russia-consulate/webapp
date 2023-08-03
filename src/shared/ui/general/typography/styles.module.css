@@ -3,9 +3,9 @@
 
   &[data-font="interface"] { @apply font-interface }
   &[data-font="text"] { @apply font-text }
-  &[data-size="xl"] { @apply text-[24px] leading-none }
-  &[data-size="base"] { @apply text-[18px] leading-tight }
-  &[data-size="sm"] { @apply text-[16px] leading-tight }
+  &[data-size="xl"] { @apply text-2xl leading-none }
+  &[data-size="base"] { @apply text-lg leading-tight }
+  &[data-size="sm"] { @apply text-base leading-tight }
 }
 
 .paragraph {
