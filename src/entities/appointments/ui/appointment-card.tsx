@@ -8,7 +8,10 @@ interface Props {
 
 export const AppointmentCard = ({ appointment }: Props) => {
   return (
-    <Container className="border border-neutral-900 border-opacity-[15%]">
+    <Container
+      className="border border-neutral-900 border-opacity-[15%]"
+      nesting={1}
+    >
       {appointment.status === AppointmentStatus.NotPayed && (
         <Tag color="orange" icon="time-circle">
           Ожидает оплаты
