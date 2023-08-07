@@ -33,7 +33,7 @@ const PurchaseOfferCurtain = () => {
   const curtainOpen = useUnit($stickyPurchaseOfferCurtainOpen)
 
   return (
-    <Curtain isOpen={curtainOpen} close={closeStickyPurchaseCurtain}>
+    <Curtain isOpen={curtainOpen} onClose={closeStickyPurchaseCurtain}>
       <Typography.Heading size="xl">
         Воспользуйтесь нашим сервисом и&nbsp;получите:
       </Typography.Heading>
@@ -67,6 +67,7 @@ const PurchaseButton = () => {
       to={routes.appointmentCreate}
       query={{ fromHome: true }}
       fluid={true}
+      onClick={closeStickyPurchaseCurtain}
     >
       Записаться в консульство
     </ButtonLink>

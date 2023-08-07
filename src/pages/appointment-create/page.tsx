@@ -73,12 +73,6 @@ const Form = ({ form }: { form: UseFormReturn<FormValues> }) => {
 
   const consulates = useUnit(consulatesQuery)
 
-  useLayoutEffect(() => {
-    if (!selectedConsulate) return
-    form.setFocus('requestId')
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedConsulate])
-
   const consulateOptions = consulates.data?.map((consulate) => ({
     label: `${consulate.country}, ${consulate.city}`,
     value: consulate.id,

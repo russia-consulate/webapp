@@ -101,7 +101,10 @@ export const ButtonLink: ButtonLinkForwarded = forwardRef<
     <Link
       ref={forwardedRef}
       className={clsx(styles.button, className)}
-      onClick={(event) => disabled && event.preventDefault()}
+      onClick={(event) => {
+        if (disabled) return event.preventDefault()
+        onClick?.(event)
+      }}
       {...dataset}
       {...rest}
     >

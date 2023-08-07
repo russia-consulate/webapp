@@ -2,7 +2,7 @@ import { $$appointments } from '@entities/appointments'
 import { createEvent, createStore, sample } from 'effector'
 import { and } from 'patronum'
 
-export const closeStickyPurchaseCurtain = createEvent()
+export const closeStickyPurchaseCurtain = createEvent<unknown>()
 
 export const $stickyPurchaseOfferActive = and(
   $$appointments.query.$succeeded,

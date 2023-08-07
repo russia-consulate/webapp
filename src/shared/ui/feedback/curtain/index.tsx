@@ -6,11 +6,11 @@ import styles from './styles.module.css'
 
 interface Props {
   isOpen: boolean
-  close: () => void
+  onClose: () => void
   children: ReactNode
 }
 
-export const Curtain = ({ isOpen, close, children }: Props) => {
+export const Curtain = ({ isOpen, onClose, children }: Props) => {
   const curtainRef = useRef<HTMLDivElement>(null)
   const scrollableRef = useRef<HTMLDivElement>(null)
 
@@ -34,7 +34,7 @@ export const Curtain = ({ isOpen, close, children }: Props) => {
     if (!curtain) return
 
     curtain.dataset.animation = 'out'
-    setTimeout(close, 500)
+    setTimeout(onClose, 500)
   }
 
   return (
