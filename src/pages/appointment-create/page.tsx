@@ -156,7 +156,7 @@ const Confirmation = () => {
   if (price.pending) {
     return (
       <BaseTemplate>
-        <Header title="Подтверждение" />
+        <Header title="Подтвердите запись" />
         <ResultCard
           title={<Skeleton type="inline" width={280} />}
           description={[
