@@ -1,0 +1,21 @@
+.consulateOption {
+  @apply flex items-center justify-center;
+  @apply w-full h-14 rounded-[16px];
+  @apply text-sm;
+  @apply bg-gray-200;
+
+  &[data-selected="true"] {
+    @apply cursor-default text-white bg-neutral-900;
+  }
+
+  &[data-selected="false"]:not(:disabled) {
+    @apply cursor-pointer;
+    &:hover { @apply bg-gray-300 }
+    &:active { @apply bg-gray-400 }
+  }
+
+  &:disabled {
+    @apply text-neutral-400 bg-transparent;
+    @apply border border-gray-500;
+  }
+}

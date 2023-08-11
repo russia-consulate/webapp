@@ -5,12 +5,13 @@ import { routes } from '@routing/shared'
 import { WebAppApi } from '@shared/api'
 import { MutationTools, QueryTools } from '@shared/lib/farfetched'
 import { combine, createEvent, createStore, restore, sample } from 'effector'
-import { reset } from 'patronum'
+import { debug, reset } from 'patronum'
 import { FormValues } from './types'
 
 export enum View {
   TechnicalIssue,
-  Form,
+  ConsulateStep,
+  RequestInfoStep,
   Confirmation,
   Done,
 }
@@ -20,6 +21,7 @@ export const appLoadedRoute = chainAppLoaded(routes.appointmentCreate)
 export const consulatesQuery = createQuery({
   name: 'consulates',
   effect: WebAppApi.getConsulatesFx,
+  initialData: [],
 })
 
 export const priceQuery = createQuery({
@@ -47,7 +49,8 @@ sample({
 
 export const consulateSelected = createEvent<string>()
 export const formSubmitted = createEvent<FormValues>()
-export const goBackToForm = createEvent()
+export const goToConsulateStep = createEvent<unknown>()
+export const goToRequestInfoStep = createEvent<unknown>()
 export const confirmed = createEvent<unknown>()
 
 export const $view = createStore<View | null>(null)
@@ -72,7 +75,7 @@ export const $selectedConsulate = combine(
     consulates: consulatesQuery.$data,
   },
   ({ id, consulates }) => {
-    return consulates?.find((item) => item.id === id) ?? null
+    return consulates.find((item) => item.id === id) ?? null
   },
 )
 
@@ -97,7 +100,7 @@ sample({
   source: consulatesQuery.$failed,
   fn: (consulatesFailed) => {
     if (consulatesFailed) return View.TechnicalIssue
-    return View.Form
+    return View.ConsulateStep
   },
   target: $view,
 })
@@ -109,8 +112,14 @@ sample({
 })
 
 sample({
-  clock: goBackToForm,
-  fn: () => View.Form,
+  clock: goToConsulateStep,
+  fn: () => View.ConsulateStep,
+  target: $view,
+})
+
+sample({
+  clock: goToRequestInfoStep,
+  fn: () => View.RequestInfoStep,
   target: $view,
 })
 
@@ -128,7 +137,7 @@ sample({
 
 sample({
   source: $view,
-  filter: (view) => view === View.Form,
+  filter: (view) => view === View.ConsulateStep,
   target: consulatesQuery.refresh,
 })
 
