@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "lint": "eslint \"src/**/*.{js,mjs,cjs,ts,mts,jsx,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{js,mjs,cjs,ts,mts,jsx,tsx}\" --fix",
-    "certs:generate": "mkcert -key-file ssl/webapp.key -cert-file ssl/webapp.crt localhost 192.168.1.127"
+    "certs:generate": "mkcert -key-file ssl/webapp.key -cert-file ssl/webapp.crt localhost 127.0.0.1 192.168.1.127"
   },
   "dependencies": {
     "@farfetched/core": "^0.8.12",
