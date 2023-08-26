@@ -3,9 +3,18 @@ import { createMutation, createQuery } from '@farfetched/core'
 import { chainAppLoaded } from '@routing/chains'
 import { routes } from '@routing/shared'
 import { WebAppApi } from '@shared/api'
+import { Consulate } from '@shared/api/webapp/types'
 import { MutationTools, QueryTools } from '@shared/lib/farfetched'
-import { combine, createEvent, createStore, restore, sample } from 'effector'
-import { debug, reset } from 'patronum'
+import {
+  combine,
+  createEffect,
+  createEvent,
+  createStore,
+  restore,
+  sample,
+} from 'effector'
+import { H } from 'highlight.run'
+import { reset } from 'patronum'
 import { FormValues } from './types'
 
 export enum View {
@@ -154,4 +163,22 @@ sample({
   source: $createPayload,
   filter: Boolean,
   target: appointmentCreateMutation.start,
+})
+
+sample({
+  clock: appLoadedRoute.opened,
+  target: createEffect(() => {
+    H.track('Appointment Create Page Opened')
+  }),
+})
+
+sample({
+  clock: appointmentCreateMutation.finished.success,
+  source: $selectedConsulate,
+  filter: Boolean,
+  target: createEffect(({ country, city }: Consulate) => {
+    H.track('Appointment Created', {
+      consulate: `${country}, ${city}`,
+    })
+  }),
 })
