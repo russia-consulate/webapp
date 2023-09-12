@@ -8,9 +8,14 @@ import ReactDOM from 'react-dom/client'
 import { App, appStarted } from '@app'
 
 H.init(window.ENV.CLIENT_HIGHLIGHT_PROJECT_ID, {
+  manualStart: true,
   environment: window.ENV.NODE_ENV,
   version: window.ENV.CLIENT_VERSION,
-  manualStart: true,
+  tracingOrigins: [window.ENV.CLIENT_API_URL.replace('https://', '')],
+  networkRecording: {
+    enabled: true,
+    recordHeadersAndBody: true,
+  },
 })
 
 if (window.ENV.NODE_ENV === 'production') {
