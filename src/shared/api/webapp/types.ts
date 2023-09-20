@@ -42,6 +42,7 @@ interface AppointmentCommon {
 type AppointmentByStatus =
   | { status: AppointmentStatus.Done; date: string; doneAt: string }
   | { status: AppointmentStatus.NotPayed }
+  | { status: AppointmentStatus.Refunded }
   | {
       status: AppointmentStatus.InQueue
       queueNumber: number
@@ -58,4 +59,5 @@ export enum AppointmentStatus {
   NotPayed = 'NotPayed',
   InQueue = 'InQueue',
   Done = 'Done',
+  Refunded = 'Refunded',
 }

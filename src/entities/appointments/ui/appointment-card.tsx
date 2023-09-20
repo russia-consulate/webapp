@@ -27,6 +27,11 @@ export const AppointmentCard = ({ appointment }: Props) => {
           Запись выполнена
         </Tag>
       )}
+      {appointment.status === AppointmentStatus.Refunded && (
+        <Tag color="pink" icon="checkmark-circle">
+          Запись отменена
+        </Tag>
+      )}
 
       <h3 className="mt-2 font-semibold leading-tight break-words">
         Запись {appointment.requestId}
