@@ -6,13 +6,7 @@ import {
 import { useBackRoute } from '@features/go-back'
 import { routes } from '@routing/shared'
 import { Appointment } from '@shared/api/webapp/types'
-import {
-  ButtonLink,
-  Container,
-  ResultCard,
-  Skeleton,
-  StickyActions,
-} from '@shared/ui'
+import { ButtonLink, Container, ResultCard, Skeleton } from '@shared/ui'
 import { BaseTemplate } from '@templates/base'
 import { Header } from '@widgets/header'
 import { useUnit } from 'effector-react'
@@ -62,11 +56,16 @@ const Content = () => {
         description={[
           <Fragment key={1}>
             После покупки записи здесь можно будет отслеживать текущее место в
-            очереди и примерное количество дней до получения слота
+            очереди и примерное количество дней до получения слота На данный
+            момент запись в консульство недоступна из-за высокой загруженности
           </Fragment>,
         ]}
         actions={
-          <ButtonLink to={routes.appointmentCreate} fluid={true}>
+          <ButtonLink
+            to={routes.appointmentCreate}
+            fluid={true}
+            disabled={true}
+          >
             Записаться в консульство
           </ButtonLink>
         }
@@ -104,14 +103,5 @@ const Content = () => {
     },
   )
 
-  return (
-    <>
-      {appointmentsJsx}
-      <StickyActions>
-        <ButtonLink to={routes.appointmentCreate} fluid={true}>
-          Добавить запись
-        </ButtonLink>
-      </StickyActions>
-    </>
-  )
+  return <>{appointmentsJsx}</>
 }
