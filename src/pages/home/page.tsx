@@ -1,3 +1,4 @@
+import { StickyPurchaseOffer } from '@features/show-sticky-purchase-offer'
 import { routes } from '@routing/shared'
 import { Container } from '@shared/ui'
 import { BaseTemplate } from '@templates/base'
@@ -52,6 +53,7 @@ export const HomePage = () => {
           }}
         />
       </Container>
+      <StickyPurchaseOffer />
     </BaseTemplate>
   )
 }
