@@ -80,6 +80,28 @@ const ConsulateStep = () => {
     )
   }
 
+  if (consulates.data.length === 0) {
+    return (
+      <BaseTemplate>
+        <ResultCard
+          title="Запись недоступна"
+          description={[
+            <Fragment key={1}>
+              На данный момент возможность создавать новые записи отключена. Но
+              это никак не&nbsp;влияет на&nbsp;активные записи - они
+              обрабатываются в&nbsp;прежнем режиме.
+            </Fragment>,
+          ]}
+          actions={
+            <Fragment>
+              <ButtonLink to="/">Вернуться на главную</ButtonLink>
+            </Fragment>
+          }
+        />
+      </BaseTemplate>
+    )
+  }
+
   return (
     <BaseTemplate>
       <Header title="Выберите консульство" />
